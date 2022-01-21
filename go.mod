@@ -1,4 +1,4 @@
-module github.com/andrexus/terraform-provider-inwx
+module github.com/beiri22/terraform-provider-inwx
 
 go 1.13
 
