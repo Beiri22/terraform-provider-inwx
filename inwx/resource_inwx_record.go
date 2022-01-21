@@ -74,7 +74,7 @@ func resourceINWXRecordCreate(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	if val, ok := d.GetOk("priority"); ok {
-		newRecord.Priority = val.(int)
+		newRecord.Prio = val.(int)
 	}
 
 	log.Printf("[DEBUG] INWX Record create configuration: %#v", newRecord)
