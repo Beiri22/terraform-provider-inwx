@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/andrexus/goinwx"
+	"github.com/Beiri22/goinwx"
 )
 
 type Config struct {
@@ -18,7 +18,7 @@ func (c *Config) Client() (*goinwx.Client, error) {
 	clientOpts := &goinwx.ClientOptions{Sandbox: c.Sandbox}
 	client := goinwx.NewClient(c.Username, c.Password, clientOpts)
 	log.Printf("[INFO] Trying to login with provided credentials")
-	err := client.Account.Login()
+	_, err := client.Account.Login()
 	if err != nil {
 		return nil, err
 	}
@@ -29,8 +29,6 @@ func (c *Config) Client() (*goinwx.Client, error) {
 			return nil, unlockErr
 		}
 	}
-
-	log.Printf("[INFO] INWX client configured for URL: %s", client.BaseURL.String())
 
 	return client, nil
 }
